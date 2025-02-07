@@ -10,7 +10,7 @@ public interface IMatriculaService {
 
     Matricula get(Long id);
 
-    List<Matricula> getAll();
+    List<Matricula> getAll(String bairro);
 
     void delete(Long id);
 }

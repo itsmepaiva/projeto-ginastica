@@ -11,7 +11,7 @@ public interface IAlunoService {
 
     Aluno get(Long id);
 
-    List<Aluno> getAll();
+    List<Aluno> getAll(String dataDeNascimento);
 
     Aluno update(Long id, AlunoUpdateForm formUpdate);
 

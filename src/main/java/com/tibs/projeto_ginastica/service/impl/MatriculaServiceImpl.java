@@ -6,10 +6,13 @@ import com.tibs.projeto_ginastica.entity.form.MatriculaForm;
 import com.tibs.projeto_ginastica.repository.AlunoRepository;
 import com.tibs.projeto_ginastica.repository.MatriculaRepository;
 import com.tibs.projeto_ginastica.service.IMatriculaService;
+import org.hibernate.type.descriptor.java.ObjectArrayJavaType;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class MatriculaServiceImpl implements IMatriculaService {
     @Autowired
     private MatriculaRepository matriculaRepository;
@@ -33,8 +36,13 @@ public class MatriculaServiceImpl implements IMatriculaService {
     }
 
     @Override
-    public List<Matricula> getAll() {
-        return matriculaRepository.findAll();
+    public List<Matricula> getAll(String bairro) {
+        if(bairro == null){
+            return matriculaRepository.findAll();
+        }else{
+            return matriculaRepository.findAlunosMatriculadosBairro(bairro);
+        }
+
     }
 
     @Override
