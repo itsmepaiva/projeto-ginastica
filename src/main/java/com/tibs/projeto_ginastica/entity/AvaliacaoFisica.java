@@ -22,7 +22,7 @@ public class AvaliacaoFisica {
     @JoinColumn(name = "aluno_id")
     private Aluno aluno;
 
-    private LocalDateTime dataDaAvaliacao;
+    private LocalDateTime dataDaAvaliacao = LocalDateTime.now();
 
     @Column(name = "peso_atual")
     private double peso;
